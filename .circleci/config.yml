@@ -11,9 +11,12 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+
       - run:
           name: "Print Hello"
-          command: echo Hello
+          command: |
+            echo $OWNER
+            echo Hello
   print-world:
     docker: 
       - image: circleci/node:13.8.0
