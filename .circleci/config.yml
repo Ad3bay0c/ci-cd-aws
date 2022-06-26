@@ -16,23 +16,23 @@ commands:
 
 jobs:
 
-  save-hello-world-output:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "Hello World!" > ~/hello.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - hello.txt
+  # save-hello-world-output:
+  #   docker:
+  #     - image: circleci/node:13.8.0
+  #   steps:
+  #     - run: echo "Hello World!" > ~/hello.txt
+  #     - persist_to_workspace:
+  #         root: ~/
+  #         paths:
+  #           - hello.txt
     
-  print-hello-world-output:
-    docker:
-      - iamge: circleci/node:13.8.0
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat ~/hello.txt
+  # print-hello-world-output:
+  #   docker:
+  #     - iamge: circleci/node:13.8.0
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/
+  #     - run: cat ~/hello.txt
   
   print-parameter-id:
     docker:
@@ -45,8 +45,8 @@ jobs:
 workflows:
   welcome:
     jobs:
-      - save-hello-world-output
-      - print-hello-world-output:
-          requires:
-            - save-hello-world-output
+      # - save-hello-world-output
+      # - print-hello-world-output:
+      #     requires:
+      #       - save-hello-world-output
       - print-parameter-id
